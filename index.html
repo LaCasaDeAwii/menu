@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menú | La Casa de AWII</title>
+<style>
+  :root{
+    --navy: #211d5e;
+    --navy-deep: #17153f;
+    --gold: #f4b93f;
+    --gold-deep: #d99a1f;
+    --red: #e2402b;
+    --teal: #2fa89f;
+    --pink: #e94f8a;
+    --cream: #fbeed9;
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    margin:0;
+    min-height:100dvh;
+    background:
+      radial-gradient(circle at 50% -10%, #3a327f 0%, var(--navy) 45%, var(--navy-deep) 100%);
+    color: var(--cream);
+    font-family: Georgia, 'Iowan Old Style', serif;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding: 6vh 6vw 6vh;
+    overflow-x:hidden;
+  }
+  .logo{
+    width: 132px;
+    height: 132px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px var(--gold), 0 14px 40px rgba(0,0,0,.45);
+    margin-bottom: 1.4rem;
+  }
+  .eyebrow{
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    font-size:.68rem;
+    color: var(--teal);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    margin-bottom: .6rem;
+  }
+  h1{
+    font-size: clamp(1.9rem, 7vw, 2.7rem);
+    font-weight: 400;
+    margin: 0 0 .35rem;
+    text-align:center;
+    line-height:1.1;
+    color: var(--gold);
+    text-shadow: 0 2px 0 rgba(0,0,0,.25);
+  }
+  p.sub{
+    color: var(--cream);
+    opacity:.75;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: .95rem;
+    margin: 0 0 2.6rem;
+    text-align:center;
+  }
+  .card{
+    width:100%;
+    max-width: 420px;
+    background: linear-gradient(160deg, #2a2568 0%, #201c58 100%);
+    border: 1px solid rgba(244,185,63,.35);
+    border-radius: 18px;
+    padding: 2rem 1.5rem;
+    text-align:center;
+    box-shadow: 0 20px 50px rgba(0,0,0,.4);
+  }
+  .card .icon{
+    font-size: 2.1rem;
+    margin-bottom: .5rem;
+  }
+  a.btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:.5rem;
+    margin-top: 1.1rem;
+    text-decoration:none;
+    padding: .95rem 1.2rem;
+    border-radius: 999px;
+    font-size: .95rem;
+    font-weight: 600;
+    letter-spacing: .01em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    transition: transform .15s ease, filter .15s ease;
+  }
+  a.btn:active{ transform: scale(.97); }
+
+  a.btn.primary{
+    background: var(--gold);
+    color: var(--navy-deep);
+  }
+  a.btn.secondary{
+    background: transparent;
+    color: var(--cream);
+    opacity:.85;
+    border: 1px solid rgba(255,255,255,.2);
+    font-weight: 500;
+  }
+  a.btn.whatsapp{
+    background: #25D366;
+    color: #0b3d24;
+  }
+  a.btn.whatsapp svg{ width:18px; height:18px; flex-shrink:0; }
+
+  .divider{
+    display:flex;
+    align-items:center;
+    gap:.6rem;
+    margin: 1.4rem 0 .2rem;
+    color: rgba(255,255,255,.35);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: .68rem;
+    text-transform:uppercase;
+    letter-spacing:.15em;
+  }
+  .divider::before, .divider::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background: rgba(255,255,255,.15);
+  }
+
+  footer{
+    margin-top: 2.6rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: .72rem;
+    color: rgba(251,238,217,.45);
+    text-align:center;
+  }
+
+  @media (min-width: 700px){
+    .viewer{
+      width:100%;
+      max-width: 620px;
+      height: 65vh;
+      margin-top: 2rem;
+      border-radius: 18px;
+      overflow:hidden;
+      border: 1px solid rgba(244,185,63,.35);
+      box-shadow: 0 20px 50px rgba(0,0,0,.4);
+    }
+    .viewer iframe{ width:100%; height:100%; border:0; }
+  }
+</style>
+</head>
+<body>
+
+  <img class="logo" src="logo.png" alt="La Casa de AWII">
+  <p class="eyebrow">Bienvenido a</p>
+  <h1>La Casa de AWII</h1>
+  <p class="sub">Escanea, mira y disfruta nuestro menú</p>
+
+  <div class="card">
+    <div class="icon">🍽️</div>
+    <a class="btn primary" href="menu.pdf" target="_blank" rel="noopener">Ver el menú</a>
+    <a class="btn secondary" href="menu.pdf" download>Descargar PDF</a>
+
+    <div class="divider">o si prefieres</div>
+
+    <a class="btn whatsapp" href="https://wa.me/527775071475?text=Hola%2C%20quiero%20ver%20su%20men%C3%BA%20digital%20por%20favor" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.81-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.79-4.17-4.94-4.36-.14-.2-1.18-1.57-1.18-3 0-1.43.75-2.13 1.02-2.42.27-.29.58-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.15.12.32.02.51-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.34 1.45.29.15.46.13.63-.08.17-.2.72-.84.92-1.13.19-.29.39-.24.65-.15.27.1 1.7.8 1.99.95.29.15.48.22.55.34.07.13.07.75-.17 1.43Z"/></svg>
+      Pedir por WhatsApp
+    </a>
+  </div>
+
+  <div class="viewer">
+    <iframe src="menu.pdf" title="Menú de La Casa de AWII"></iframe>
+  </div>
+
+  <footer>La Casa de AWII · menú actualizado</footer>
+
+</body>
+</html>
