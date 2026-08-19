@@ -259,7 +259,7 @@
         i = n;
       }
       function next(){ show((i + 1) % slides.length); }
-      function start(){ timer = setInterval(next, 6000); }
+      function start(){ timer = setInterval(next, 10000); }
       function reset(){ clearInterval(timer); start(); }
 
       dots.forEach(d => d.addEventListener('click', () => {
