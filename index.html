@@ -135,7 +135,7 @@
     position:relative;
     border-radius: 14px;
     overflow:hidden;
-    height: 130px;
+    height: 210px;
     box-shadow: 0 10px 26px rgba(0,0,0,.35);
     border: 1px solid rgba(244,185,63,.2);
   }
@@ -229,7 +229,7 @@
     <div class="card" style="margin-top: 1.6rem;">
       <div class="icon">🍽️</div>
       <a class="btn primary" href="menu.pdf" target="_blank" rel="noopener">Ver el menú</a>
-      <a class="btn secondary" href="menu.pdf" download="Menú Casa Awii.pdf">Descargar PDF</a>
+      <a class="btn secondary" id="downloadBtn" href="menu.pdf">Descargar PDF</a>
 
       <div class="divider">o si prefieres</div>
 
@@ -257,7 +257,7 @@
         i = n;
       }
       function next(){ show((i + 1) % slides.length); }
-      function start(){ timer = setInterval(next, 4000); }
+      function start(){ timer = setInterval(next, 6000); }
       function reset(){ clearInterval(timer); start(); }
 
       dots.forEach(d => d.addEventListener('click', () => {
@@ -267,6 +267,26 @@
 
       start();
     })();
+
+    // Descarga forzada del PDF (algunos navegadores ignoran el
+    // atributo download y abren el visor interno de PDF en su lugar).
+    document.getElementById('downloadBtn').addEventListener('click', function(e){
+      e.preventDefault();
+      const url = this.getAttribute('href');
+      fetch(url)
+        .then(res => res.blob())
+        .then(blob => {
+          const blobUrl = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = blobUrl;
+          a.download = 'Menu Casa Awii.pdf';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(blobUrl);
+        })
+        .catch(() => { window.open(url, '_blank'); });
+    });
   </script>
 
 </body>
